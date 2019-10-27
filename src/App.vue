@@ -76,7 +76,7 @@
                   ></v-switch>
                 </template>
                 <span>
-                  <i>Working on it, kindly check back later</i> ❤
+                  <i>Working on it, please check back later</i> ❤
                 </span>
               </v-tooltip>
               <!-- Tooltip -->
@@ -190,6 +190,7 @@ export default {
     font-size: 1em;
   }
 }
+
 @media only screen and (max-width: 600px) {
   #home-content {
     margin-top: 8em;
