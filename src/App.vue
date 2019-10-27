@@ -17,7 +17,7 @@
         gradient="to top right, rgba(100,115,201,.30), rgba(25,32,72,.7)"
       >
         <v-container id="home-content">
-          <h1 id="home-header">Coming soon, Trailers, Now playing in theaters ...</h1>
+          <h1 id="home-header">Coming soon, Now playing in theaters, You'll find'em here... </h1>
           <v-chip class="ma-2" color="white darken-3" outlined>
             <span role="img" aria-label="point-right">Hey there! 👉</span>
             <i>All collections are latest of year {{new Date().getFullYear()}}</i>
