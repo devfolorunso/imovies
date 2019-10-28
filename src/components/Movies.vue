@@ -55,12 +55,11 @@
             <!--Working on  this section -->
 
             <v-divider class="mx-4"></v-divider>
-
-            <v-card-actions class="mt-4 row container p-0 offset-md-1">
+            <v-card-actions class="ml-3 py-4 text-center">
               <!-- <v-btn  color="deep-purple accent-4" text @click="reserve">
                     Reserve
               </v-btn>-->
-              <v-btn color="red accent-4 col-md-2">
+              <v-btn color="red accent-4">
                 <a
                   :href="`https://www.youtube.com/results?search_query=${movie.title} ${new Date().getFullYear()}`"
                   target="_blank"
@@ -68,20 +67,19 @@
                   <v-icon medium color="white accent-4 ">mdi-youtube</v-icon>
                 </a>
               </v-btn>
-
-              <v-btn color="grey darken-4 col-md-2">
+              <v-btn color="grey darken-4">
                 <a :href="`https://www.netflix.com/search?q=${movie.title}`" target="_blank">
                   <v-icon medium color="red accent-4">mdi-netflix</v-icon>
                 </a>
               </v-btn>
 
-              <v-btn color="grey darken-4 col-md-2">
+              <v-btn color="grey darken-4">
                  <a :href="`https://www.rottentomatoes.com/search/?search=${movie.title}`" target="_blank">
                   <v-icon medium color="red accent-4">mdi-movie-roll</v-icon>
                 </a>
               </v-btn>
 
-               <v-btn color="grey darken-4 col-md-2">
+               <v-btn color="grey darken-4">
                 <v-tooltip left>
                   <template v-slot:activator="{ on }">
                     <a href v-on="on">
