@@ -4,7 +4,7 @@
       <v-col v-bind:key="movie.id" v-for="movie in movies" cols="12" sm="6" md="4">
         <!-- Movie card -->
         <v-hover v-slot:default="{ hover }">
-          <v-card :loading="loading" class="mx-auto my-12" max-width="374" height="1100">
+          <v-card :loading="loading" class="mx-auto my-12" max-width="374" height="930">
             <v-img
               :src="`https://image.tmdb.org/t/p/w500/${movie.poster_path}`"
               gradient="to top right, rgba(100,115,201,.20), rgba(25,32,72,.3)"
@@ -47,7 +47,7 @@
               <div>
                 <p class="text-justify">
                   <v-icon medium color="dark">mdi-information-outline</v-icon>
-                  {{movie.overview}}
+                  {{movie.overview | test}} {{"..."}}
                 </p>
               </div>
             </v-card-text>
@@ -55,7 +55,7 @@
             <!--Working on  this section -->
 
             <v-divider class="mx-4"></v-divider>
-            <v-card-actions class="ml-10 py-4 text-center">
+            <v-card-actions class="ml-5 py-4 text-center">
               <!-- <v-btn  color="deep-purple accent-4" text @click="reserve">
                     Reserve
               </v-btn>-->
@@ -74,7 +74,7 @@
               </v-btn>
 
               <v-btn color="grey darken-4">
-                <a :href="`https://www.rottentomatoes.com/search/?search=${movie.title}`" target="_blank">
+                 <a :href="`https://www.rottentomatoes.com/search/?search=${movie.title}`" target="_blank">
                   <v-icon medium color="red accent-4">mdi-movie-roll</v-icon>
                 </a>
               </v-btn>
@@ -126,6 +126,12 @@ export default {
     loading: false,
     selection: 1
   }),
+
+  filters:{
+    test(e){
+      return e.substring(0, 200);
+    }
+  },
 
   // To use this for the last section of the movie card
   methods: {

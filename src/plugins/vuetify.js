@@ -9,7 +9,7 @@ export default new Vuetify({
     iconfont: 'mdi',
   },
   
-  // theme: {
-  //   dark: true,
-  // },
+  theme: {
+    dark: false,
+  },
 });
