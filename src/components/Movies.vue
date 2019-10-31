@@ -39,14 +39,13 @@
                 >Ratings: {{movie.vote_average}} ( {{movie.vote_count}} )</div>
               </v-row>
 
-              <div class="my-4 subtitle-1 black--text">
+              <div class="my-4 subtitle-1">
                 <v-icon medium color="dark">mdi-calendar-multiple-check</v-icon>
                 {{movie.release_date}}
               </div>
 
               <div>
                 <p class="text-justify">
-                  <v-icon medium color="dark">mdi-information-outline</v-icon>
                   {{movie.overview | test}} {{"..."}}
                 </p>
               </div>

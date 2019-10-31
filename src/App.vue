@@ -37,6 +37,7 @@
       <v-container fluid id="movies">
         <v-card class="pa-3">
           <Movies v-bind:movies="movies" />
+          <router-view></router-view>
         </v-card>
       </v-container>
 
@@ -53,7 +54,7 @@
           <v-row no-gutters>
             <v-col cols="6">
               <!-- Footer text -->
-              <v-card-text class="white--text text-left">
+              <v-card-text  class="white--text text-left">
                 {{ new Date().getFullYear() }} —
                 iMovies By
                 <a
@@ -64,23 +65,8 @@
             </v-col>
 
             <v-col cols="6">
-              <!-- Tooltip swticher-->
-              <v-tooltip left>
-                <template v-slot:activator="{ on }">
-                  <v-switch
-                    v-model="goDark"
-                    class="float-right"
-                    v-on="on"
-                    inset
-                    :label="`Dark Theme`"
-                  ></v-switch>
-                </template>
-                <span>
-                  <i>Working on it, please check back later</i> ❤
-                </span>
-              </v-tooltip>
-              <!-- Tooltip -->
-            </v-col>
+              <v-icon medium color="white" class="float-right" @click="setTheme">mdi-lightbulb-on-outline</v-icon>
+                </v-col>
           </v-row>
         </v-card>
       </v-footer>
@@ -104,20 +90,15 @@ export default {
   data() {
     return {
       movies: [],
-      goDark: false
+      // goDark: false
     };
   },
   // Trying to set dark theme switcher
-  Computed: {
-    setTheme() {
-      if (this.goDark == true) {
-        return (this.$vuetify.theme.dark = true);
-      } else {
-        return (this.$vuetify.theme.dark = false);
-      }
-    }
+  methods:{
+    setTheme(){
+      this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
+    },
   },
-
   // Fetch Movie from themovieDB
   mounted() {
     axios
@@ -137,7 +118,6 @@ export default {
 <style>
 /* Landing view css */
 #home-logo {
-  font-family: "Bangers", cursive;
   font-size: 1.5em;
   color: #fff;
 }
