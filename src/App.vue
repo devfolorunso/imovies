@@ -2,114 +2,152 @@
   <!-- App.vue -->
   <div id="app">
     <v-app>
+      <!-- nav drawer -->
+      <v-navigation-drawer v-model="drawer" temporary app>
+        <v-list>
+          <v-list-item>
+            <v-list-item-avatar>
+              <v-icon medium color="dark">mdi-movie</v-icon>
+            </v-list-item-avatar>
+
+            <v-list-item-content>
+              <v-list-item-title>iMovies</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list>
+        <v-divider></v-divider>
+        <v-list nav dense rounded>
+          <v-list-item-group color="primary">
+            <!-- Home -->
+            <router-link to="/">
+              <v-list-item>
+                <v-list-item-icon>
+                  <v-icon>mdi-home</v-icon>
+                </v-list-item-icon>
+
+                <v-list-item-content>
+                  <v-list-item-title>Home</v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </router-link>
+
+            <!-- Holllywood -->
+            <router-link to="/hollywood">
+              <v-list-item>
+                <v-list-item-icon>
+                  <v-icon>mdi-movie</v-icon>
+                </v-list-item-icon>
+
+                <v-list-item-content>
+                  <v-list-item-title>Hollywood</v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </router-link>
+
+            <!-- Nollywood -->
+            <router-link to="/nollywood">
+              <v-list-item>
+                <v-list-item-icon>
+                  <v-icon>mdi-movie-roll</v-icon>
+                </v-list-item-icon>
+
+                <v-list-item-content>
+                  <v-list-item-title>Nollywood</v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </router-link>
+
+            <!-- Movie Series -->
+            <router-link to="/movieseries">
+              <v-list-item>
+                <v-list-item-icon>
+                  <v-icon>mdi-filmstrip</v-icon>
+                </v-list-item-icon>
+
+                <v-list-item-content>
+                  <v-list-item-title>
+                    Your
+                    <span color="red">☆</span> Movie Series
+                  </v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </router-link>
+
+            <!-- About -->
+            <router-link to="/about">
+              <v-list-item>
+                <v-list-item-icon>
+                  <v-icon>mdi-information</v-icon>
+                </v-list-item-icon>
+
+                <v-list-item-content>
+                  <v-list-item-title>About</v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </router-link>
+          </v-list-item-group>
+        </v-list>
+      </v-navigation-drawer>
       <!-- Nav -->
-      <v-app-bar color="blue-grey lighten-1"  app>
-        <v-toolbar-title id="home-logo">
-          <v-icon medium color="dark">mdi-movie</v-icon>iMovies
-        </v-toolbar-title>
-        <v-spacer></v-spacer>
+
+      <v-app-bar color="blue-grey lighten-1" app>
+        <v-toolbar class="he" color="blue-grey lighten-1">
+          <v-toolbar-title id="home-logo">
+            <v-icon medium color="dark">mdi-movie</v-icon>iMovies
+          </v-toolbar-title>
+
+          <v-spacer></v-spacer>
+
+          <v-btn icon @click.stop="drawer = !drawer">
+            <v-icon>mdi-page-layout-sidebar-right</v-icon>
+          </v-btn>
+        </v-toolbar>
       </v-app-bar>
 
-      <!-- Landing view  -->
-      <v-img
-        :src="`https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80`"
-        height="690"
-        gradient="to top right, rgba(100,115,201,.30), rgba(25,32,72,.7)"
-      >
-        <v-container id="home-content">
-          <h1 id="home-header">Coming soon, Now playing in theaters, You'll find'em here... </h1>
-          <v-chip class="ma-2" color="white darken-3" outlined>
-            <span role="img" aria-label="point-right">Hey there! 👉</span>
-            <i>All collections are latest of year {{new Date().getFullYear()}}</i>
-          </v-chip>
-        </v-container>
+      <!--  Movies Router-->
+      <router-view />
+      <!--  Movies ROuter-->
 
-        <!-- Animated down arrow -->
-        <div class="arrow bounce">
-          <a href="#movies" v-smooth-scroll>
-            <v-icon large color="white">mdi-arrow-down-bold-circle</v-icon>
-          </a>
+      <back-to-top class="mb-5 btn-to-to" visibleoffset="2000">
+        <!-- <v-icon large class="btn-to-top scroll" color="white">mdi-arrow-up-drop-circle</v-icon>       -->
+        <div class="my-2">
+          <v-btn color="teal" fab large dark>
+            <v-icon>mdi-keyboard-caps</v-icon>
+          </v-btn>
         </div>
-      </v-img>
+      </back-to-top>
 
-      <!-- Provides the application the proper gutter -->
-      <!-- Movies -->
-      <v-container fluid id="movies">
-        <v-card class="pa-3">
-          <Movies v-bind:movies="movies" />
-          <router-view></router-view>
-        </v-card>
-      </v-container>
-
-      <!-- Footer -->
-      <v-footer color="blue-grey darken-1" app>
-        <!-- <v-card class="pa-2" outlined tile> -->
-        <v-card color="blue-grey darken-1" class="flex" flat tile>
-          <!-- Scroll to top -->
-
-          <back-to-top visibleoffset="2000">
-            <v-icon large class="btn-to-top" color="white">mdi-arrow-up-bold-circle</v-icon>
-          </back-to-top>
-
-          <v-row no-gutters>
-            <v-col cols="6">
-              <!-- Footer text -->
-              <v-card-text  class="white--text text-left">
-                {{ new Date().getFullYear() }} —
-                iMovies By
-                <a
-                  href="https://github.com/afolorunso"
-                  class="white--text"
-                >Folorunso</a>
-              </v-card-text>
-            </v-col>
-
-            <v-col cols="6">
-              <v-icon medium color="white" class="float-right" @click="setTheme">mdi-lightbulb-on-outline</v-icon>
-                </v-col>
-          </v-row>
-        </v-card>
+      <v-footer color="blue-grey darken-1 white--text" class="py-4" app tile>
+        {{ new Date().getFullYear() }} —
+        iMovies
+        <v-spacer></v-spacer>
+        <v-icon medium color="white" class="float-right" @click="setTheme">mdi-theme-light-dark</v-icon>
       </v-footer>
     </v-app>
   </div>
 </template>
 
 <script>
-import Movies from "./components/Movies";
 import BackToTop from "vue-backtotop";
-import axios from "axios";
 
 export default {
   name: "app",
   // Register component
   components: {
-    Movies,
     BackToTop
   },
 
   data() {
     return {
-      movies: [],
-      // goDark: false
+      drawer: null
     };
   },
-  // Trying to set dark theme switcher
-  methods:{
-    setTheme(){
+
+  // dark theme switcher
+  methods: {
+    setTheme() {
       this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
-    },
-  },
-  // Fetch Movie from themovieDB
-  mounted() {
-    axios
-      .get(
-        "https://api.themoviedb.org/3/discover/movie?api_key=4310f95b82d271cc0c42f73b0e163207&sort_by=popularity.desc&include_adult=true&include_video=true&primary_release_year=" +
-          new Date().getFullYear() +
-          "&year=" +
-          new Date().getFullYear()
-      )
-      .then(res => (this.movies = res.data.results))
-      .catch();
+    }
   }
 };
 </script>
@@ -123,13 +161,13 @@ export default {
 }
 
 #home-content {
-  margin-top: 9em;
+  margin-top: 11em;
   font-size: 1.5em;
 }
 
 #home-header {
   font-family: "Bangers", cursive;
-  font-size: 2.5em;
+  font-size: 1.5em;
   margin-bottom: 0.1em;
   color: #fff;
 }
@@ -166,15 +204,35 @@ export default {
 /* Media Queries fro MD and SM screens */
 @media only screen and (max-width: 700px) {
   #home-content {
-    margin-top: 10em;
+    margin-top: 14em;
     font-size: 1em;
   }
 }
 
 @media only screen and (max-width: 600px) {
   #home-content {
-    margin-top: 8em;
+    margin-top: 15em;
     font-size: 1em;
   }
+}
+
+.scroll {
+  width: 50px;
+  height: 50px;
+  background-color: #666;
+  -webkit-border-radius: 60px;
+  -moz-border-radius: 60px;
+  border-radius: 60px;
+}
+
+.scroll:hover {
+  background-color: #160b0a;
+  opacity: 1;
+  filter: "alpha(opacity=100)";
+  -ms-filter: "alpha(opacity=100)";
+}
+
+.he {
+  box-shadow: none !important;
 }
 </style>

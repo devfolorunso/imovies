@@ -10,6 +10,6 @@ export default new Vuetify({
   },
   
   theme: {
-    dark: true,
+    dark: false,
   },
 });
