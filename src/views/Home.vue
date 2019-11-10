@@ -1,16 +1,16 @@
 <template>
 <div>
-    <Movies/>
+    <HomeCards/>
 </div>
 </template>
 
 <script>
-import Movies from '@/components/Movies.vue'
+import HomeCards from '@/components/HomeCards.vue'
 
 export default {
   name: 'home',
   components: {
-    Movies
+    HomeCards
   }
 }
 </script>
