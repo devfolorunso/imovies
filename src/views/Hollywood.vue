@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import HMovieComp from '@/components/HMovieComp.vue'
+import HMovieComp from '@/components/movies/HMovieComp.vue'
 export default {
   name: 'Hollywood',
   

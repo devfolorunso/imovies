@@ -57,7 +57,34 @@
               </v-list-item>
             </router-link>
 
-            <!-- Movie Series -->
+            <!-- Sign In -->
+            <router-link to="/register">
+              <v-list-item>
+                <v-list-item-icon>
+                  <v-icon>mdi-account-check</v-icon>
+                </v-list-item-icon>
+
+                <v-list-item-content>
+                  <v-list-item-title>Register</v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </router-link>
+            <!-- Login -->
+
+                        <!-- Sign In -->
+            <router-link to="/login">
+              <v-list-item>
+                <v-list-item-icon>
+                  <v-icon>mdi-key</v-icon>
+                </v-list-item-icon>
+
+                <v-list-item-content>
+                  <v-list-item-title>Login</v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </router-link>
+            <!-- Login -->
+
             <router-link to="/movieseries">
               <v-list-item>
                 <v-list-item-icon>

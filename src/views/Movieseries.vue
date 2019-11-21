@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import MovieSeriesComp from '@/components/MovieSeriesComp'
+import MovieSeriesComp from '@/components/movies/MovieSeriesComp'
 
 export default {
   name: 'movieseries',

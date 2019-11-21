@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import NMovieComp from '@/components/NMovieComp.vue'
+import NMovieComp from '@/components/movies/NMovieComp.vue'
 export default {
   name: 'Nollywood',
   
