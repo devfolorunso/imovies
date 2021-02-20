@@ -71,7 +71,7 @@
             </router-link>
             <!-- Login -->
 
-                        <!-- Sign In -->
+            <!-- Sign In -->
             <router-link to="/login">
               <v-list-item>
                 <v-list-item-icon>
@@ -145,10 +145,11 @@
       </back-to-top>
 
       <v-footer color="blue-grey darken-1 white--text" class="py-4" app tile>
-        {{ new Date().getFullYear() }} —
-        iMovies
+        {{ new Date().getFullYear() }} — iMovies
         <v-spacer></v-spacer>
-        <v-icon medium color="white" class="float-right" @click="setTheme">mdi-theme-light-dark</v-icon>
+        <v-icon medium color="white" class="float-right" @click="setTheme"
+          >mdi-theme-light-dark</v-icon
+        >
       </v-footer>
     </v-app>
   </div>
@@ -161,12 +162,12 @@ export default {
   name: "app",
   // Register component
   components: {
-    BackToTop
+    BackToTop,
   },
 
   data() {
     return {
-      drawer: null
+      drawer: null,
     };
   },
 
@@ -174,11 +175,10 @@ export default {
   methods: {
     setTheme() {
       this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
-    }
-  }
+    },
+  },
 };
 </script>
-
 
 <style>
 /* Landing view css */

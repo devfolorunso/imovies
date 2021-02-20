@@ -1,15 +1,21 @@
 <template>
-<div>
+  <div>
+    <div class="first-view">
       <v-img
         :src="`https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80`"
-        height="690"
+        height="100vh"
         gradient="to top right, rgba(100,115,201,.30), rgba(25,32,72,.7)"
       >
         <v-container id="home-content">
-          <h1 id="home-header">Coming soon, Now playing in theaters, You'll find'em here... </h1>
+          <h1 id="home-header">
+            Coming soon, Now playing in theaters, You'll find'em here...
+          </h1>
           <v-chip class="ma-2" color="white darken-3" outlined>
             <span role="img" aria-label="point-right">Hey there! 👉</span>
-            <i>All collections are latest of year {{new Date().getFullYear()}}</i>
+            <i
+              >All collections are latest of year
+              {{ new Date().getFullYear() }}</i
+            >
           </v-chip>
         </v-container>
 
@@ -20,105 +26,128 @@
           </a>
         </div>
       </v-img>
+    </div>
 
+    <!-- Categories -->
+    <v-container fluid class="home-cards" id="categories">
+      <v-card class="pa-2">
+        <v-row no-gutters>
+          <v-col cols="12" sm="6" md="4">
+            <v-card class="mx-auto my-12" max-width="374">
+              <v-img
+                height="250"
+                src="https://www.aljazeera.com/mritems/Images/2014/8/19/201481916240122734_20.jpg"
+              ></v-img>
 
-   <!-- Categories -->
-      <v-container fluid class="home-cards" id="categories">
-        <v-card class="pa-2">
+              <v-card-title>Hollywood Movies</v-card-title>
 
-    <v-row no-gutters>
-      <v-col cols="12" sm="6" md="4">
-        <v-card class="mx-auto my-12" max-width="374">
-          <v-img
-            height="250"
-            src="https://www.aljazeera.com/mritems/Images/2014/8/19/201481916240122734_20.jpg"
-          ></v-img>
+              <v-card-text>
+                <div class="my-4 subtitle-1">
+                  • Action, Drama, Comedy, Sci-Fi, Romance
+                </div>
 
-          <v-card-title>Hollywood Movies</v-card-title>
+                <div>Get the most of your leisure time...</div>
+              </v-card-text>
 
-          <v-card-text>
-        
-            <div class="my-4 subtitle-1">• Action, Drama, Comedy, Sci-Fi, Romance</div>
+              <v-divider class="mx-4"></v-divider>
+              <v-card-actions>
+                <v-btn
+                  class="mx-auto"
+                  rounded
+                  outlined
+                  color="indigo lighten-2"
+                  @click="toHolly"
+                >
+                  Take me there!
+                  <div v-if="Hloader" class="custom-loader">
+                    <span>
+                      <v-icon light>mdi-movie-roll</v-icon>
+                    </span>
+                  </div>
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-col>
 
-            <div>Get the most of your leisure time...</div>
-          </v-card-text>
+          <!-- Nollywood -->
+          <v-col cols="12" sm="6" md="4">
+            <v-card class="mx-auto my-12" max-width="374">
+              <v-img
+                height="250"
+                src="https://travel.jumia.com/blog/ng/wp-content/uploads/2016/10/nollywood.jpg"
+              ></v-img>
 
-          <v-divider class="mx-4"></v-divider>
-          <v-card-actions>
-            <v-btn class="mx-auto" rounded outlined color="indigo lighten-2" @click="toHolly">
-              Take me there!    
-              <div v-if="Hloader" class="custom-loader">
-                <span>
-                  <v-icon light>mdi-movie-roll</v-icon>
-                </span>
-              </div>
-            </v-btn>
-          </v-card-actions>
-        </v-card>
-      </v-col>
+              <v-card-title>Nollywood Movies</v-card-title>
 
-      <!-- Nollywood -->
-      <v-col cols="12" sm="6" md="4">
-        <v-card class="mx-auto my-12" max-width="374">
-         <v-img
-            height="250"
-            src="https://travel.jumia.com/blog/ng/wp-content/uploads/2016/10/nollywood.jpg"
-          ></v-img>
+              <v-card-text>
+                <div class="my-4 subtitle-1">
+                  • Action, Drama, Comedy, Sci-Fi, Romance
+                </div>
 
-          <v-card-title>Nollywood Movies</v-card-title>
+                <div>Get the most of your leisure time...</div>
+              </v-card-text>
 
-          <v-card-text>
-        
-            <div class="my-4 subtitle-1">• Action, Drama, Comedy, Sci-Fi, Romance</div>
+              <v-divider class="mx-4"></v-divider>
+              <v-card-actions>
+                <v-btn
+                  class="mx-auto"
+                  rounded
+                  outlined
+                  color="indigo lighten-2"
+                  @click="toNolly"
+                >
+                  Take me there!
+                  <div v-if="Nloader" class="custom-loader">
+                    <span>
+                      <v-icon light>mdi-movie-roll</v-icon>
+                    </span>
+                  </div>
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-col>
 
-            <div>Get the most of your leisure time...</div>
-          </v-card-text>
+          <!-- TV SHOWS/ Series -->
+          <v-col cols="12" sm="6" md="4">
+            <v-card class="mx-auto my-12" max-width="374">
+              <v-img
+                height="250"
+                src="https://i.ytimg.com/vi/BjjVwE8hWz4/hqdefault.jpg"
+              ></v-img>
 
-          <v-divider class="mx-4"></v-divider>
-          <v-card-actions>
-            <v-btn class="mx-auto" rounded outlined color="indigo lighten-2" @click="toNolly">
-              Take me there!    
-              <div v-if="Nloader" class="custom-loader">
-                <span>
-                  <v-icon light>mdi-movie-roll</v-icon>
-                </span>
-              </div>
-            </v-btn>
-          </v-card-actions>
-        </v-card>
-      </v-col>
+              <v-card-title>Tv Shows & Movie Series</v-card-title>
 
-      <!-- TV SHOWS/ Series -->
-      <v-col cols="12" sm="6" md="4">
-      <v-card class="mx-auto my-12" max-width="374">
-          <v-img height="250" src="https://i.ytimg.com/vi/BjjVwE8hWz4/hqdefault.jpg"></v-img>
+              <v-card-text>
+                <div class="my-4 subtitle-1">
+                  • Action, Drama, Comedy, Sci-Fi, Romance
+                </div>
 
-          <v-card-title>Tv Shows & Movie Series</v-card-title>
+                <div>Your favourite tv shows and movie series manager...</div>
+              </v-card-text>
 
-          <v-card-text>
-        
-            <div class="my-4 subtitle-1">• Action, Drama, Comedy, Sci-Fi, Romance</div>
-
-            <div>Your favourite tv shows and movie series manager...</div>
-          </v-card-text>
-
-          <v-divider class="mx-4"></v-divider>
-          <v-card-actions>
-            <v-btn class="mx-auto" rounded outlined color="indigo lighten-2" @click="toShows">
-              Take me there!    
-              <div v-if="Tvloader" class="custom-loader">
-                <span>
-                  <v-icon light>mdi-movie-roll</v-icon>
-                </span>
-              </div>
-            </v-btn>
-          </v-card-actions>
-        </v-card>
-      </v-col>
-    </v-row>
-          </v-card>
-        </v-container>
-      </div>
+              <v-divider class="mx-4"></v-divider>
+              <v-card-actions>
+                <v-btn
+                  class="mx-auto"
+                  rounded
+                  outlined
+                  color="indigo lighten-2"
+                  @click="toShows"
+                >
+                  Take me there!
+                  <div v-if="Tvloader" class="custom-loader">
+                    <span>
+                      <v-icon light>mdi-movie-roll</v-icon>
+                    </span>
+                  </div>
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-card>
+    </v-container>
+  </div>
 </template>
 
 <script>
@@ -129,7 +158,7 @@ export default {
     return {
       Hloader: false,
       Nloader: false,
-      Tvloader:false
+      Tvloader: false,
     };
   },
 
@@ -137,7 +166,7 @@ export default {
     toHolly() {
       this.Hloader = true;
       setTimeout(
-        function() {
+        function () {
           this.$router.push({ path: "/hollywood" });
         }.bind(this),
         2500
@@ -146,7 +175,7 @@ export default {
     toNolly() {
       this.Nloader = true;
       setTimeout(
-        function() {
+        function () {
           this.$router.push({ path: "/nollywood" });
         }.bind(this),
         2500
@@ -155,17 +184,22 @@ export default {
     toShows() {
       this.Tvloader = true;
       setTimeout(
-        function() {
+        function () {
           this.$router.push({ path: "/movieseries" });
         }.bind(this),
         2500
       );
     },
-  }
+  },
 };
 </script>
 
 <style>
+.first-view {
+  width: 100%;
+  height: 100vh;
+}
+
 .custom-loader {
   animation: loader 1.5s infinite;
   display: flex;
