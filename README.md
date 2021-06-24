@@ -1,4 +1,6 @@
-# imovies
+# imovies 
+
+https://scrutinizer-ci.com/g/devfolorunso/imovies/badges/quality-score.png?b=master
 
 ## Project setup
 ```
