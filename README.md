@@ -1,6 +1,6 @@
 # imovies 
 
-https://scrutinizer-ci.com/g/devfolorunso/imovies/badges/quality-score.png?b=master
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/devfolorunso/imovies/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/devfolorunso/imovies/?branch=master)
 
 ## Project setup
 ```
